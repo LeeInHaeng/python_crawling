@@ -1,3 +1,4 @@
+import os
 from itertools import count
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
@@ -9,6 +10,7 @@ import time
 
 from collection import crawler
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def crawling_pelicana():
     results = []
@@ -75,8 +77,8 @@ def crawling_nene():
     # store
     table = pd.DataFrame(results, columns=['name', 'address', 'sido', 'gugun'])
     # print(table)
-    table.to_csv('__results__/nene.csv', encoding='utf-8', mode='w', index=True)
-
+    # table.to_csv(f'{BASE_DIR}/__results__/nene.csv', encoding='utf-8', mode='w', index=True)
+    table.to_csv('/root/crawling-results/nene.csv', encoding='utf-8', mode='w', index=True)
 
 def crawling_kyochon():
     results = []
